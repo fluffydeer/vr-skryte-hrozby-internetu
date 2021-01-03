@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6c204c65-9f46-47e1-8002-4a1602da92ce" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Custom/Scripts/L2/EmailInteractionScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/Input/SteamVR_Input.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Custom/Scripts/L1/EnterGateScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/Input/SteamVR_Input_ActionFile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/Scripts/SteamVR_TrackingReferenceManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Custom/Scripts/L2/CollectFishScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Custom/Scripts/L2/WaterEffectScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/Scripts/SteamVR_Utils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/InteractionSystem/Core/Scripts/HoverButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Custom/Scripts/L2/ValidateEmailScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Custom/Scripts/L2/L2ManagerScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR_Input/SteamVR_Input_Actions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/InteractionSystem/Hints/Scripts/ControllerButtonHints.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/Scripts/SteamVR_PlayArea.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Custom/Scripts/Menu/MenuUIScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/InteractionSystem/Core/Scripts/UIElement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/InteractionSystem/Core/Scripts/Hand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/Input/SteamVR_Action_Skeleton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/InteractionSystem/Samples/Scripts/ButtonEffect.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Custom/Scripts/Portal/PortalManagerScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Custom/Scripts/EndScene/EndSceneManagerScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/InteractionSystem/Samples/Scripts/SkeletonUIOptions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/ParticleSystems/Scripts/ParticleSystemMultiplier.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/InteractionSystem/Core/Scripts/HandCollider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Custom/Scripts/L3/L3ManagerScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/InteractionSystem/Core/Scripts/Throwable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Downloaded/Objects/Simple Health Bar/Editor/SimpleHealthBarWindow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/Input/SteamVR_Behaviour_Skeleton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/InteractionSystem/Teleport/Scripts/TeleportPoint.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/Input/SteamVR_Action_Boolean.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/InteractionSystem/Core/Scripts/FallbackCameraController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/InteractionSystem/Core/Scripts/HandPhysics.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/Scripts/SteamVR_LoadLevel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Custom/Scripts/OnButtonSwitchScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/Scripts/SteamVR_Behaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Downloaded/Objects/Simple Health Bar/Scripts/SimpleHealthBar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Custom/Scripts/FadeScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/Scripts/SteamVR_TrackedCamera.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/Scripts/SteamVR.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/Scripts/SteamVR_TrackedObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Custom/Scripts/AudioManagerScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/Extras/SteamVR_TestTrackedCamera.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Custom/Scripts/L1/CheckAnswerScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Custom/Scripts/OnTriggerSwitchScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/Scripts/SteamVR_ExternalCamera.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/Input/Editor/SteamVR_Input_ActionManifest_Manager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/Scripts/SteamVR_Overlay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/Input/Editor/SteamVR_Input_Generator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Custom/Scripts/L1/TriggerDescriptionScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/Extras/SteamVR_LaserPointer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Custom/Scripts/L1/L1ManagerScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Custom/Scripts/L1/SpawnScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SteamVR/Scripts/SteamVR_Render.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/Menu/UiScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/AudioScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/SteamVR/InteractionSystem/Core/Scripts/HoverButton.cs" />
+        <option value="$PROJECT_DIR$/Assets/SteamVR/Scripts/SteamVR_Utils.cs" />
+        <option value="$PROJECT_DIR$/Assets/SteamVR/Scripts/SteamVR.cs" />
+        <option value="$PROJECT_DIR$/Assets/SteamVR/Scripts/SteamVR_TrackedCamera.cs" />
+        <option value="$PROJECT_DIR$/Assets/SteamVR/Scripts/SteamVR_Render.cs" />
+        <option value="$PROJECT_DIR$/Assets/SteamVR/Scripts/SteamVR_LoadLevel.cs" />
+        <option value="$PROJECT_DIR$/Assets/SteamVR/Scripts/SteamVR_TrackedObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/SteamVR/Scripts/SteamVR_Overlay.cs" />
+        <option value="$PROJECT_DIR$/Assets/SteamVR/Scripts/SteamVR_ExternalCamera.cs" />
+        <option value="$PROJECT_DIR$/Assets/SteamVR/Input/SteamVR_Action_Skeleton.cs" />
+        <option value="$PROJECT_DIR$/Assets/SteamVR/Input/Editor/SteamVR_Input_Generator.cs" />
+        <option value="$PROJECT_DIR$/Assets/SteamVR/Extras/SteamVR_TestTrackedCamera.cs" />
+        <option value="$PROJECT_DIR$/Assets/SteamVR/InteractionSystem/Hints/Scripts/ControllerButtonHints.cs" />
+        <option value="$PROJECT_DIR$/Assets/SteamVR/InteractionSystem/Core/Scripts/Hand.cs" />
+        <option value="$PROJECT_DIR$/Assets/SteamVR/InteractionSystem/Core/Scripts/HandCollider.cs" />
+        <option value="$PROJECT_DIR$/Assets/SteamVR/InteractionSystem/Core/Scripts/HandPhysics.cs" />
+        <option value="$PROJECT_DIR$/Assets/SteamVR/Input/SteamVR_Behaviour_Skeleton.cs" />
+        <option value="$PROJECT_DIR$/Assets/SteamVR/Input/SteamVR_Input.cs" />
+        <option value="$PROJECT_DIR$/Assets/SteamVR/InteractionSystem/Core/Scripts/Throwable.cs" />
+        <option value="$PROJECT_DIR$/Assets/SteamVR/InteractionSystem/Samples/Scripts/ButtonEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/L1/StartL1Script.cs" />
+        <option value="$PROJECT_DIR$/Assets/SteamVR/InteractionSystem/Core/Scripts/UIElement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/L2/ExampleEmailScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/L2/EmailCheckScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/L2/ValidateEmail.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/L1/CheckAnswerScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/L1/SpawnScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/L1/TriggerDescriptionScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/L2/CollectFishScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/L2/EmailInteractionScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/L2/WaterEffectScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/L3/PortalPointScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/Portal/TriggerScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/SceneManagementScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/AudioManagerScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/L3/PasswordScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/L2/ValidateEmailScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/L2/L2ManagerScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/L1/EnterGateScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/SteamVR/InteractionSystem/Teleport/Scripts/TeleportPoint.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/OnTriggerSwitchScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/EndScene/EndSceneManagerScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/Portal/PortalScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/OnButtonSwitchScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/Portal/PortalManagerScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/L3/L3ManagerScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/Menu/MenuUIScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/L1/L1ManagerScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Custom/Scripts/FadeScript.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1YWnJqKCwSH3diLcxTQTjhKcHTc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="Rider.SolutionExplorerActivator" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6c204c65-9f46-47e1-8002-4a1602da92ce" name="Default Changelist" comment="" />
+      <created>1583067149951</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583067149951</updated>
+      <workItem from="1583067158255" duration="29000" />
+      <workItem from="1583068249515" duration="797000" />
+      <workItem from="1583069253575" duration="1984000" />
+      <workItem from="1583080485638" duration="4000" />
+      <workItem from="1583188600052" duration="2739000" />
+      <workItem from="1584548508003" duration="9000" />
+      <workItem from="1584548643126" duration="657000" />
+      <workItem from="1584575226463" duration="4024000" />
+      <workItem from="1584625929949" duration="2403000" />
+      <workItem from="1584628550093" duration="161000" />
+      <workItem from="1584628823901" duration="9000" />
+      <workItem from="1584729307433" duration="96000" />
+      <workItem from="1584729519320" duration="20000" />
+      <workItem from="1584735550849" duration="6000" />
+      <workItem from="1584786749535" duration="601000" />
+      <workItem from="1584788752431" duration="1282000" />
+      <workItem from="1584801086813" duration="2049000" />
+      <workItem from="1584959719185" duration="625000" />
+      <workItem from="1584965859017" duration="1680000" />
+      <workItem from="1584974502612" duration="531000" />
+      <workItem from="1584986104948" duration="5000" />
+      <workItem from="1584996080812" duration="1946000" />
+      <workItem from="1585039243732" duration="2006000" />
+      <workItem from="1585042296325" duration="189000" />
+      <workItem from="1585042851741" duration="4131000" />
+      <workItem from="1585058425735" duration="1784000" />
+      <workItem from="1585692970530" duration="696000" />
+      <workItem from="1585696262493" duration="1420000" />
+      <workItem from="1586023309228" duration="417000" />
+      <workItem from="1586030809585" duration="89000" />
+      <workItem from="1586214063174" duration="5405000" />
+      <workItem from="1586265342736" duration="5450000" />
+      <workItem from="1586286631236" duration="1345000" />
+      <workItem from="1586295416084" duration="3592000" />
+      <workItem from="1586610048168" duration="1498000" />
+      <workItem from="1586808006203" duration="9000" />
+      <workItem from="1586933462272" duration="547000" />
+      <workItem from="1586937233624" duration="1585000" />
+      <workItem from="1587112344514" duration="259000" />
+      <workItem from="1587113580831" duration="776000" />
+      <workItem from="1587293530856" duration="532000" />
+      <workItem from="1587921847749" duration="4428000" />
+      <workItem from="1587935293809" duration="787000" />
+      <workItem from="1588531559296" duration="623000" />
+      <workItem from="1588535678127" duration="106000" />
+      <workItem from="1588536411590" duration="59000" />
+      <workItem from="1588536528908" duration="29000" />
+      <workItem from="1588536688438" duration="266000" />
+      <workItem from="1588539819846" duration="17000" />
+      <workItem from="1588543407491" duration="601000" />
+      <workItem from="1588630526235" duration="9721000" />
+      <workItem from="1588947133192" duration="630000" />
+      <workItem from="1588948976350" duration="699000" />
+      <workItem from="1588977953578" duration="9000" />
+      <workItem from="1588978506772" duration="1144000" />
+      <workItem from="1589019050530" duration="546000" />
+      <workItem from="1589019949651" duration="2796000" />
+      <workItem from="1589027074018" duration="13113000" />
+      <workItem from="1589100326001" duration="2503000" />
+      <workItem from="1589126884364" duration="32000" />
+      <workItem from="1589322095658" duration="2612000" />
+      <workItem from="1589579035902" duration="806000" />
+      <workItem from="1589581510261" duration="4632000" />
+      <workItem from="1589623598752" duration="29160000" />
+      <workItem from="1589670224791" duration="2241000" />
+      <workItem from="1589713127467" duration="8642000" />
+      <workItem from="1589751701417" duration="824000" />
+      <workItem from="1589754137856" duration="16682000" />
+      <workItem from="1589841880983" duration="3737000" />
+      <workItem from="1589972087766" duration="313000" />
+      <workItem from="1590260564360" duration="1903000" />
+      <workItem from="1590661600349" duration="127000" />
+      <workItem from="1590900221024" duration="8041000" />
+      <workItem from="1590926131160" duration="557000" />
+      <workItem from="1590926884222" duration="6305000" />
+      <workItem from="1590935821708" duration="1668000" />
+      <workItem from="1592119830951" duration="74000" />
+      <workItem from="1592120332089" duration="4515000" />
+      <workItem from="1592129973356" duration="3721000" />
+      <workItem from="1592470708627" duration="103000" />
+      <workItem from="1592470838230" duration="69000" />
+      <workItem from="1592471346669" duration="337000" />
+      <workItem from="1600176430716" duration="229000" />
+      <workItem from="1600179515609" duration="248000" />
+      <workItem from="1603136230677" duration="695000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="309" y="25" key="#Notifications" timestamp="1592470899750">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="309" y="25" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1592470899750" />
+    <state x="363" y="99" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1592119857244">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="363" y="99" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1592119857244" />
+    <state x="207" y="7" key="SettingsEditor" timestamp="1600176636469">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="207" y="7" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1600176636469" />
+  </component>
+</project>

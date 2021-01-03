@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1216641536800176}
+  m_IsPrefabAsset: 1
+--- !u!1 &1216641536800176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4733972446160610}
+  - component: {fileID: 119936486039606376}
+  - component: {fileID: 114734536427203108}
+  m_Layer: 0
+  m_Name: BlobShadowProjector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4733972446160610
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1216641536800176}
+  m_LocalRotation: {x: 0.75157696, y: -0, z: -0, w: 0.6596455}
+  m_LocalPosition: {x: -33.518837, y: 32.74001, z: 4.6394835}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114734536427203108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1216641536800176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc76e6b35656511498cd7ee30054dcce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fps: 30
+  frames:
+  - {fileID: 2800000, guid: f3f057d84fd1eaf4b98ccce6077981cf, type: 3}
+  - {fileID: 2800000, guid: 736d05b549028944ba7b9ef6fb5ac9af, type: 3}
+  - {fileID: 2800000, guid: eef3773f1be40f9478af5761cead5353, type: 3}
+  - {fileID: 2800000, guid: 7c5c9d2dd290d074caf6cfcd0201285f, type: 3}
+  - {fileID: 2800000, guid: 6d30f8a40082cc244bbdcd31484d28fb, type: 3}
+  - {fileID: 2800000, guid: d63a0558bc405bd40a25aa5c20a4e52c, type: 3}
+  - {fileID: 2800000, guid: 006bda723d4c20a43b6da7656d45237f, type: 3}
+  - {fileID: 2800000, guid: 62a1e519178d41941a1e19b1a1085b5c, type: 3}
+  - {fileID: 2800000, guid: a4ef189b0efaca3429bdc78797a0b020, type: 3}
+  - {fileID: 2800000, guid: 8126b9f5f34c7f54585ebe984b3aeab0, type: 3}
+  - {fileID: 2800000, guid: a2193888810327544b70aa1aca64efdd, type: 3}
+  - {fileID: 2800000, guid: 870d222d67a267a4b94a208795f30541, type: 3}
+  - {fileID: 2800000, guid: aea81a2ff332b5343a703e04b50eb7cc, type: 3}
+  - {fileID: 2800000, guid: cff7339521b8ecc47b31626602de2742, type: 3}
+  - {fileID: 2800000, guid: 5fb478d6cee541242853de43515bfb8c, type: 3}
+  - {fileID: 2800000, guid: 4cdfe7ebd2629594d92b7fcead158935, type: 3}
+--- !u!119 &119936486039606376
+Projector:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1216641536800176}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_NearClipPlane: 1
+  m_FarClipPlane: 50
+  m_FieldOfView: 150
+  m_AspectRatio: 0.5
+  m_Orthographic: 0
+  m_OrthographicSize: 2
+  m_Material: {fileID: 2100000, guid: e30ff3588e719f34bbf0c66f22d97487, type: 2}
+  m_IgnoreLayers:
+    serializedVersion: 2
+    m_Bits: 0
