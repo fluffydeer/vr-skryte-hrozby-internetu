@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.skrytehrozbyinternetu.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\vr\\Documents\\TP\\Skryte_hrozby_internetu\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\vr\\Documents\\games\\vr-skryte-hrozby-internetu\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "SkryteHrozbyInternetu [Testing]"
