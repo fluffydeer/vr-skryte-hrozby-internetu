@@ -24,15 +24,12 @@ namespace Custom.Scripts.L1 {
 			canvasGroup.alpha = 0;
 		}
 
-		//kolizia  s objektom
-		//private void OnTriggerEnter(Collider other) {
 
-		//if (other.CompareTag("Player")) { //prechod hraca branou
-		public void StartGame()
+		public void ShowGameStartRelatedStuff()
 		{
 			if (!alreadyStarted)
 			{
-				ShowGameStartRelatedStuff(); //zaciatok hry
+				ShowStuff(); //zaciatok hry - nepravda, hra je hratelna aj bez stlacenia tlacidla
 				audioSource.Play(); //zvuk
 				alreadyStarted = true;
 			}
@@ -43,10 +40,8 @@ namespace Custom.Scripts.L1 {
 				l1ManagerScript.endLevelPanel.SetActive(false); //zmiznutie instrukcii
 			}
 		}
-			//}
-		//}
 		
-		void ShowGameStartRelatedStuff() {
+		void ShowStuff() {
 			PlayParticles(); //spustenie particle systemov
 			Invoke("ShowPanel",8.0f); //objavi sa panel
 		}
@@ -54,11 +49,12 @@ namespace Custom.Scripts.L1 {
 		//zobrazenie panela
 		public void ShowPanel() { 
 			StartCoroutine(FadeIn());
+			HidePanel();
 		}
 		
 		//zmiznutie panela
 		public void HidePanel() {
-			StartCoroutine(FadeOut());
+			StartCoroutine(FadeOut(5));
 		}
 
 
@@ -71,7 +67,9 @@ namespace Custom.Scripts.L1 {
 			}
 		}
 		//postupne miznutie panela
-		public IEnumerator FadeOut() {
+		public IEnumerator FadeOut(int seconds) {
+			yield return new WaitForSeconds(seconds);
+
 			while (canvasGroup.alpha  > 0.0) {
 				canvasGroup.alpha -= Time.deltaTime/2; //znizovanie viditelnosti
 				if (canvasGroup.alpha <= 0.05)
