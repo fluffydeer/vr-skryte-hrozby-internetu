@@ -25,23 +25,28 @@ namespace Custom.Scripts.L1 {
 		}
 
 		//kolizia  s objektom
-		private void OnTriggerEnter(Collider other) {
-	
-			if (other.CompareTag("Player")) { //prechod hraca branou
-				if (!alreadyStarted) {
-					StartGame(); //zaciatok hry
-					audioSource.Play(); //zvuk
-					alreadyStarted = true;
-				}
+		//private void OnTriggerEnter(Collider other) {
 
-				//zobrazi sa panel s teleportom
-				if (gameFinished) {
-					l1ManagerScript.endLevelPanel.SetActive(false); //zmiznutie instrukcii
-				}
+		//if (other.CompareTag("Player")) { //prechod hraca branou
+		public void StartGame()
+		{
+			if (!alreadyStarted)
+			{
+				ShowGameStartRelatedStuff(); //zaciatok hry
+				audioSource.Play(); //zvuk
+				alreadyStarted = true;
+			}
+
+			//zobrazi sa panel s teleportom
+			if (gameFinished)
+			{
+				l1ManagerScript.endLevelPanel.SetActive(false); //zmiznutie instrukcii
 			}
 		}
+			//}
+		//}
 		
-		void StartGame() {
+		void ShowGameStartRelatedStuff() {
 			PlayParticles(); //spustenie particle systemov
 			Invoke("ShowPanel",8.0f); //objavi sa panel
 		}
