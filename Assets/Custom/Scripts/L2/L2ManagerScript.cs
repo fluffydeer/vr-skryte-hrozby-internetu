@@ -1,5 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Valve.VR.Extras;
+
 
 namespace Custom.Scripts.L2 {
     //manager druhej urovne hry
@@ -15,7 +20,36 @@ namespace Custom.Scripts.L2 {
         private Animator phishingAnimator;  //animacia pre phishing maily
         private Animator exampleAnimator; //animacia pre prikladovy mail
         private Animator winAnimator; //animacia pre vyhernu tabulu a TeleportPoint
-      
+
+        /*** upravy od natalky ***/
+        public SteamVR_LaserPointer laserPointer;   //nezabudnut pridat RightHand na GameObject s tymto skriptom
+
+        void Awake()    //natalka
+        {
+            laserPointer.PointerIn += PointerInside;
+            laserPointer.PointerOut += PointerOutside;
+            laserPointer.PointerClick += PointerClick;
+        }
+
+        public void PointerClick(object sender, PointerEventArgs e)
+        {
+            Debug.Log("Clicked on OK button, game starting");
+            if (e.target.name == "OkButton")
+            {
+                Debug.Log("Game starting");
+                StartLevel();
+            }
+
+        }
+
+        public void PointerInside(object sender, PointerEventArgs e) {
+        }
+
+        public void PointerOutside(object sender, PointerEventArgs e) {
+        }
+        /*** koniec natalky ***/
+
+
         //inicializacia
         void Start() {
             //nastavenie hlasitosti
@@ -78,5 +112,9 @@ namespace Custom.Scripts.L2 {
         private void HidePhishingMails() {
             phishingMails.transform.localScale = new Vector3(0, 0, 0);
         }
+
+
+
+
     }
 }

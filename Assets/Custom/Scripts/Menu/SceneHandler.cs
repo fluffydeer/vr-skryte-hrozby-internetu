@@ -6,8 +6,7 @@ using UnityEngine.UI;
 using Valve.VR.Extras;
 using Custom.Scripts.Menu;  //for including MenuUIScript
 
-public class SceneHandler : MonoBehaviour
-{
+public class SceneHandler : MonoBehaviour{
     
     public SteamVR_LaserPointer laserPointer;
     

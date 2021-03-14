@@ -150,11 +150,11 @@ namespace Custom.Scripts.Menu {
 
 
 				case "ScrollViewUp":            //LaserPointer reaguje len na click neda sa dragovat
-					Debug.Log("ScrollViewUp");
+					//Debug.Log("ScrollViewUp");
 					ScrollUp();
 					break;
 				case "ScrollViewDown":            //LaserPointer reaguje len na click neda sa dragovat
-					Debug.Log("ScrollViewDown");
+					//Debug.Log("ScrollViewDown");
 					ScrollDown();
 					break;
 				case "DemoButton":
