@@ -31,15 +31,35 @@ namespace Custom.Scripts.L2 {
             laserPointer.PointerClick += PointerClick;
         }
 
+        //public EmailInteractionScript Instance;
+
         public void PointerClick(object sender, PointerEventArgs e)
         {
-            Debug.Log("Clicked on OK button, game starting");
+            Debug.Log("Clicked on canvas");
             if (e.target.name == "OkButton")
             {
                 Debug.Log("Game starting");
                 StartLevel();
             }
+            //else if (e.target.name == "Text (7)")
+            else if (e.target.name.Contains("Text"))
+            {
+                Debug.Log("Clicked on " + e.target.name);
+                //EmailInteractionScript.Instance.Select();
+                //Instance.Select();//toto samozrejme nejde lebo tam nic nie je
+                //ako spristupnit fuknicu select daneho objektu Text (7)?
+                //cize chcem najst Text(7) a nasledne zo skriptu ktory na nom je
+                //zavolat funkciu select
 
+                //ked tam teraz ja priradim skript z objektu tak
+                //sa mi tie funkcie budu volat len na ten dejen gameobject a nie ostatne
+                GameObject clickedText = GameObject.Find(e.target.name);
+                //tu by sa potom dala dat podmienka ze ak je to prazdne tak 
+                //nech to preskoci a evidentne ziadnu funcku nevola... len ze ci to 
+                //nebude padat ak sa top bude snazit spristupnit objekt ktory neexistuje
+                EmailInteractionScript script = (EmailInteractionScript)clickedText.GetComponent(typeof(EmailInteractionScript));
+                script.Select();
+            }
         }
 
         public void PointerInside(object sender, PointerEventArgs e) {
