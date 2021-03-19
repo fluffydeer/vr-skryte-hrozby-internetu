@@ -14,9 +14,9 @@ namespace Custom.Scripts.L2 {
         public GameObject exampleMail; //prikladovy mail
         public GameObject winPanel; //panel zobrazeny na konci hry
         public Text pointsStatusText; //bodovy stav = text na vrchnej casti obrazovky
-       
+
         private AudioManagerScript audioManagerScript; //script na ovladanie hlasitosti
-        
+
         private Animator phishingAnimator;  //animacia pre phishing maily
         private Animator exampleAnimator; //animacia pre prikladovy mail
         private Animator winAnimator; //animacia pre vyhernu tabulu a TeleportPoint
@@ -33,34 +33,92 @@ namespace Custom.Scripts.L2 {
 
         //public EmailInteractionScript Instance;
 
-        public void PointerClick(object sender, PointerEventArgs e)
-        {
+        public void PointerClick(object sender, PointerEventArgs e) {
             Debug.Log("Clicked on canvas");
-            if (e.target.name == "OkButton")
-            {
+            Debug.Log("Clicked on " + e.target.name);
+
+            if (e.target.name == "OkButton") {
                 Debug.Log("Game starting");
                 StartLevel();
+            } else if (e.target.name == "CheckAnswersButton") {
+                //todo, kde je ten skript? treba zohnat tu danu naplnenu instanciu
+                //mame to na Canvase - ako ten skript zohnat ked Canvas ma stale to iste
+                //meno vsade? mozno viem nejakym sposobom zohnat unikatne parent id?
+                //podla canvas mena ich nemozem vuýhladavat lebo nie su unikatne
+                //1. canvas potiahnem do public variable pre kazdy mail - to by bolo 11.x
+                //2. dostanem sa ku skriptu rodica a nasledne zavolam funkciu
+                //transform.parent.gameObject.GetComponent<"Validate Email Script">().GetResult();
+                //ValidateEmailScript.GetResult();
+
+                //hladame parenta buttonu
+                //GameObject Canvas = transform.parent.gameObject.GetComponent<"Validate Email Script">().GetResult();
+                Debug.Log("KONTROLUJEM");
+                GameObject clickedButton = getClickedGameObject(e.target);
+                GameObject canvas = clickedButton.transform.parent.gameObject;  //parent zakliknuteho buttonu
+                ValidateEmailScript script = (ValidateEmailScript)canvas.GetComponent(typeof(ValidateEmailScript));
+                //todo script neobsahuje referenciu
+                script.GetResult();
+                Debug.Log("meno parenta: " + canvas.name);
+            }else if (e.target.name == "CorrectAnswerButton") {
+                GameObject clickedButton = getClickedGameObject(e.target);
+                GameObject canvas = clickedButton.transform.parent.gameObject;  //parent zakliknuteho buttonu
+                ValidateEmailScript script = (ValidateEmailScript)canvas.GetComponent(typeof(ValidateEmailScript));
+                //todo script neobsahuje referenciu
+                script.GetFish();
+
+
+            } else if (e.target.name == "IncorrectAnswerButton") {
+                GameObject clickedButton = getClickedGameObject(e.target);
+                GameObject canvas = clickedButton.transform.parent.gameObject;  //parent zakliknuteho buttonu
+                ValidateEmailScript script = (ValidateEmailScript)canvas.GetComponent(typeof(ValidateEmailScript));
+                //todo script neobsahuje referenciu
+                script.TryAgain();
+
             }
             //else if (e.target.name == "Text (7)")
-            else if (e.target.name.Contains("Text"))
-            {
-                Debug.Log("Clicked on " + e.target.name);
+            else if (e.target.name.Contains("Text"))    //tu by som to mohla kontrolovat podla
+            {//tagov a potom by nebolo treba prepisovat tie idcka spat
+                //otazka je zi ci tu mam spravny Text a ze ci fakt budu rozdielne!
+                //Debug.Log("Clicked on " + e.target.name);
+                Debug.Log("Instance ID " + e.target.GetInstanceID().ToString());
                 //EmailInteractionScript.Instance.Select();
                 //Instance.Select();//toto samozrejme nejde lebo tam nic nie je
                 //ako spristupnit fuknicu select daneho objektu Text (7)?
                 //cize chcem najst Text(7) a nasledne zo skriptu ktory na nom je
                 //zavolat funkciu select
 
+
+                //je ten e.target referencia alebo len kopia?
+                //string previousName = e.target.name;
+                //e.target.name = e.target.GetInstanceID().ToString();
                 //ked tam teraz ja priradim skript z objektu tak
                 //sa mi tie funkcie budu volat len na ten dejen gameobject a nie ostatne
-                GameObject clickedText = GameObject.Find(e.target.name);
+                //GameObject clickedText = GameObject.Find(e.target.name);
+                
+                GameObject clickedText = getClickedGameObject(e.target);
                 //tu by sa potom dala dat podmienka ze ak je to prazdne tak 
                 //nech to preskoci a evidentne ziadnu funcku nevola... len ze ci to 
                 //nebude padat ak sa top bude snazit spristupnit objekt ktory neexistuje
                 EmailInteractionScript script = (EmailInteractionScript)clickedText.GetComponent(typeof(EmailInteractionScript));
                 script.Select();
+                
+                
+                //ak to id nevratim spat tak ma nepusti podmienka lebo chyba Text v nazve
+                //e.target.name = previousName;   //toto sa bude dat dat vyssie
             }
         }
+
+        //hladanie GameObjektov podla ich instance ID, kedze tam mame asi 10 Buttonov
+        //s tym istym id a to iste aj pre texty na canvasoch
+        public GameObject getClickedGameObject(Transform clickedObject) {
+            string previousName = clickedObject.name;
+            //poitrebujem objketu nastavit id cize ja tam potrebujem poslat objekt
+            clickedObject.name = clickedObject.GetInstanceID().ToString();
+            GameObject ourPreciousGameObject = GameObject.Find(clickedObject.name);
+            clickedObject.name = previousName;
+            return ourPreciousGameObject;
+        }
+        
 
         public void PointerInside(object sender, PointerEventArgs e) {
         }

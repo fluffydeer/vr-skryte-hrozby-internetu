@@ -24,7 +24,8 @@ namespace Custom.Scripts.L2 {
 
 		//ziskanie oznacenych casti textu
 		private void SetEmailInteractionScripts() {
-			
+
+			//hadam, ze ten gameobject je Canvas
 			foreach (Transform child in gameObject.GetComponent<Transform>()) {
 				if (child.gameObject.CompareTag("HighlightedText")) {
 					emailInteractionScripts.Add(child.GetComponent<EmailInteractionScript>());
@@ -60,6 +61,7 @@ namespace Custom.Scripts.L2 {
 
 		//objavi sa ryba
 		public void GetFish() {
+			Debug.Log("rybka chytena - klikla som na button alebo som rybu chytila? ");
 			popupCorrect.SetActive(false);
 		}
 		

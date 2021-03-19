@@ -101,13 +101,17 @@ namespace Custom.Scripts.L2 {
 
 		//oznacenie textu - zobrazi sa pozadie
 		public void Select() {
+			Debug.Log("sme v selecte. Background: " + background);
 			if (selected) {
 				background.SetActive(false);
 				selected = false;
+				Debug.Log("pozadie ziadne");
 			}
 			else {
 				background.SetActive(true);
 				selected = true;
+				Debug.Log("pozadie zvyraznene");
+
 			}
 		}
 		
