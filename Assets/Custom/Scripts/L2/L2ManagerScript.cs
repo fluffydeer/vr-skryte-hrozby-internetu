@@ -16,7 +16,9 @@ namespace Custom.Scripts.L2 {
         public Text pointsStatusText; //bodovy stav = text na vrchnej casti obrazovky
 
         private AudioManagerScript audioManagerScript; //script na ovladanie hlasitosti
+        private bool gameStarted = false;
 
+        private GameObject previouslyClickedCheckAnswersButton;
         private Animator phishingAnimator;  //animacia pre phishing maily
         private Animator exampleAnimator; //animacia pre prikladovy mail
         private Animator winAnimator; //animacia pre vyhernu tabulu a TeleportPoint
@@ -39,6 +41,7 @@ namespace Custom.Scripts.L2 {
 
             if (e.target.name == "OkButton") {
                 Debug.Log("Game starting");
+                gameStarted = true;
                 StartLevel();
             } else if (e.target.name == "CheckAnswersButton") {
                 //todo, kde je ten skript? treba zohnat tu danu naplnenu instanciu
@@ -54,22 +57,28 @@ namespace Custom.Scripts.L2 {
                 //GameObject Canvas = transform.parent.gameObject.GetComponent<"Validate Email Script">().GetResult();
                 Debug.Log("KONTROLUJEM");
                 GameObject clickedButton = getClickedGameObject(e.target);
+                previouslyClickedCheckAnswersButton = clickedButton;
                 GameObject canvas = clickedButton.transform.parent.gameObject;  //parent zakliknuteho buttonu
                 ValidateEmailScript script = (ValidateEmailScript)canvas.GetComponent(typeof(ValidateEmailScript));
                 //todo script neobsahuje referenciu
-                script.GetResult();
+                if (script.GetResult()) {
+                    clickedButton.SetActive(false);
+                }
                 Debug.Log("meno parenta: " + canvas.name);
-            }else if (e.target.name == "CorrectAnswerButton") {
+            } else if (e.target.name == "CorrectAnswerButton") {
                 GameObject clickedButton = getClickedGameObject(e.target);
-                GameObject canvas = clickedButton.transform.parent.gameObject;  //parent zakliknuteho buttonu
-                ValidateEmailScript script = (ValidateEmailScript)canvas.GetComponent(typeof(ValidateEmailScript));
+                GameObject popUpIncorrect = clickedButton.transform.parent.gameObject;  //parent zakliknuteho buttonu
+                GameObject canvas = popUpIncorrect.transform.parent.gameObject;  //parent zakliknuteho buttonu
+                ValidateEmailScript script = (ValidateEmailScript)canvas.GetComponent(typeof(ValidateEmailScript)); previouslyClickedCheckAnswersButton.SetActive(false);
                 //todo script neobsahuje referenciu
                 script.GetFish();
 
 
             } else if (e.target.name == "IncorrectAnswerButton") {
                 GameObject clickedButton = getClickedGameObject(e.target);
-                GameObject canvas = clickedButton.transform.parent.gameObject;  //parent zakliknuteho buttonu
+                //toto nebude canvas ale go popupincorrect
+                GameObject popUpIncorrect = clickedButton.transform.parent.gameObject;  //parent zakliknuteho buttonu
+                GameObject canvas = popUpIncorrect.transform.parent.gameObject;  //parent zakliknuteho buttonu
                 ValidateEmailScript script = (ValidateEmailScript)canvas.GetComponent(typeof(ValidateEmailScript));
                 //todo script neobsahuje referenciu
                 script.TryAgain();
@@ -94,15 +103,18 @@ namespace Custom.Scripts.L2 {
                 //ked tam teraz ja priradim skript z objektu tak
                 //sa mi tie funkcie budu volat len na ten dejen gameobject a nie ostatne
                 //GameObject clickedText = GameObject.Find(e.target.name);
-                
+
                 GameObject clickedText = getClickedGameObject(e.target);
                 //tu by sa potom dala dat podmienka ze ak je to prazdne tak 
                 //nech to preskoci a evidentne ziadnu funcku nevola... len ze ci to 
                 //nebude padat ak sa top bude snazit spristupnit objekt ktory neexistuje
-                EmailInteractionScript script = (EmailInteractionScript)clickedText.GetComponent(typeof(EmailInteractionScript));
-                script.Select();
-                
-                
+                //toto nebude canvas ale go popupincorrect
+                GameObject canvas = clickedText.transform.parent.gameObject;  //parent zakliknuteho buttonu
+                ValidateEmailScript script = (ValidateEmailScript)canvas.GetComponent(typeof(ValidateEmailScript));
+                if (!gameStarted || !script.getAlreadyChecked()) {
+                    EmailInteractionScript emailScript = (EmailInteractionScript)clickedText.GetComponent(typeof(EmailInteractionScript));
+                    emailScript.Select();
+                }
                 //ak to id nevratim spat tak ma nepusti podmienka lebo chyba Text v nazve
                 //e.target.name = previousName;   //toto sa bude dat dat vyssie
             }

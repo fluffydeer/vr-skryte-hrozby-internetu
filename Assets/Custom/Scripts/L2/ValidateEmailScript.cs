@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace Custom.Scripts.L2 {
-	
+
 	//kontrola spravnej odpovede v maili
 	public class ValidateEmailScript : MonoBehaviour {
 
@@ -11,10 +11,14 @@ namespace Custom.Scripts.L2 {
 		public GameObject popupCorrect; //okno - spravna odpoved
 		public GameObject popupIncorrect; //okno - nespravna odpoved
 		private bool alreadyChecked = false; //hrac skontroloval mail
-	
+
 		//script na interakcie s mailom
 		private List<EmailInteractionScript> emailInteractionScripts = new List<EmailInteractionScript>();
-		
+
+		public bool getAlreadyChecked() {
+			return alreadyChecked;
+        }
+
 		//inicializacia
 		void Start () {
 			popupCorrect.SetActive(false);
@@ -57,6 +61,7 @@ namespace Custom.Scripts.L2 {
 			foreach (EmailInteractionScript highlightedText in emailInteractionScripts) {
 				highlightedText.Clear();
 			}
+			Debug.Log("tryagain in validatescript");
 		}
 
 		//objavi sa ryba
@@ -67,7 +72,7 @@ namespace Custom.Scripts.L2 {
 		
 		
 		//zavolana pri kliknuti na tlacidlo "Skontroluj"
-		public void GetResult() {
+		public bool GetResult() {
 			if (!alreadyChecked) {
 				if (ValidateAnswer()) { //kontrola odpovede
 					
@@ -75,14 +80,16 @@ namespace Custom.Scripts.L2 {
 					foreach (GameObject f in GameObject.FindGameObjectsWithTag("Fish")) {
 						Destroy(f);
 					}
-					popupCorrect.SetActive(true); //info - spravna odpoved
+					//popupCorrect.SetActive(true); //info - spravna odpoved
 					Instantiate(fish, spawnPoint.position, spawnPoint.rotation); //inicializacia ryby
 					alreadyChecked = true;
+					return true;
 				}
 				else {
 					popupIncorrect.SetActive(true); //info - nespravna odpoved
+					return false;
 				}
-			}
+			}return false;
 		}
 	}
 }
