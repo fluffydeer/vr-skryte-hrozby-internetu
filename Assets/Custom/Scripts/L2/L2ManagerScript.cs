@@ -33,46 +33,16 @@ namespace Custom.Scripts.L2 {
         }
 
         public void PointerClick(object sender, PointerEventArgs e) {
-            //Debug.Log("Clicked on canvas");
-            //Debug.Log("Clicked on " + e.target.name);
-
             if (e.target.name == "OkButton") {
                 handleOkButton();
             } else if (e.target.name == "CheckAnswersButton") {
                 handleCheckAnswersButton(e.target);
-
-                /*GameObject clickedButton = getClickedGameObject(e.target);
-                previouslyClickedCheckAnswersButton = clickedButton;
-                GameObject canvas = clickedButton.transform.parent.gameObject;         //parent zakliknuteho buttonu
-                ValidateEmailScript script = (ValidateEmailScript)canvas.GetComponent(typeof(ValidateEmailScript));
-                if (script.GetResult()) {
-                    clickedButton.SetActive(false);
-                }*/
             } else if (e.target.name == "CorrectAnswerButton") {
                 handleCorrectAnswerButton(e.target);
-                /*GameObject clickedButton = getClickedGameObject(e.target);
-                GameObject popUpIncorrect = clickedButton.transform.parent.gameObject;  //parent zakliknuteho buttonu
-                GameObject canvas = popUpIncorrect.transform.parent.gameObject;
-                ValidateEmailScript script = (ValidateEmailScript)canvas.GetComponent(typeof(ValidateEmailScript));
-                previouslyClickedCheckAnswersButton.SetActive(false);
-                script.GetFish();*/
             } else if (e.target.name == "IncorrectAnswerButton") {
                 handleIncorrectAnswerButton(e.target);
-                /*GameObject clickedButton = getClickedGameObject(e.target);
-                GameObject popUpIncorrect = clickedButton.transform.parent.gameObject;  //parent zakliknuteho buttonu
-                GameObject canvas = popUpIncorrect.transform.parent.gameObject;
-                ValidateEmailScript script = (ValidateEmailScript)canvas.GetComponent(typeof(ValidateEmailScript));
-                script.TryAgain();*/
             } else if (e.target.name.Contains("Text")) {
                 handleText(e.target);
-
-                /*GameObject clickedText = getClickedGameObject(e.target);
-                GameObject canvas = clickedText.transform.parent.gameObject;           
-                ValidateEmailScript script = (ValidateEmailScript)canvas.GetComponent(typeof(ValidateEmailScript));
-                if (!gameStarted || !script.getAlreadyChecked()) {
-                    EmailInteractionScript emailScript = (EmailInteractionScript)clickedText.GetComponent(typeof(EmailInteractionScript));
-                    emailScript.Select();
-                }*/
             }
         }
 
@@ -119,7 +89,7 @@ namespace Custom.Scripts.L2 {
 
         public ValidateEmailScript getValidateEmailScriptSecondLevel(Transform clickedObject) {
             GameObject clickedButton = getClickedGameObject(clickedObject);
-            GameObject popUp = clickedButton.transform.parent.gameObject;       //parent zakliknuteho buttonu
+            GameObject popUp = clickedButton.transform.parent.gameObject;                   //parent zakliknuteho buttonu
             GameObject canvas = popUp.transform.parent.gameObject;
             return (ValidateEmailScript)canvas.GetComponent(typeof(ValidateEmailScript));
         }
