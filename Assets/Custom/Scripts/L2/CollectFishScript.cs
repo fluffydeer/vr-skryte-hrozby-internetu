@@ -16,9 +16,8 @@ namespace Custom.Scripts.L2 {
 		}
 
 		public void Collect() {
-			Debug.Log("CollectFish");
-			l2ManagerScript.points++; //zvysenie stavu
-			Destroy(gameObject); //znicenie objektu
+			l2ManagerScript.points++;	//zvysenie stavu
+			Destroy(gameObject);		//znicenie objektu
 		}
 	}
 }

@@ -30,8 +30,8 @@ namespace Custom.Scripts {
         }
 
         public void FadeOut() {
-            fadeImage.canvasRenderer.SetAlpha(1.0f);
-            fadeImage.CrossFadeAlpha(0.0f,1f,false);
+            //fadeImage.canvasRenderer.SetAlpha(1.0f);
+            //fadeImage.CrossFadeAlpha(0.0f,1f,false);
             Invoke(nameof(HideImage),1.05f);
         }
     }

@@ -6,10 +6,10 @@ namespace Custom.Scripts.L2 {
 	//kontrola spravnej odpovede v maili
 	public class ValidateEmailScript : MonoBehaviour {
 
-		public Transform spawnPoint; //bod inicializacie ryby
-		public GameObject fish; //objekt ryby
-		public GameObject popupCorrect; //okno - spravna odpoved
-		public GameObject popupIncorrect; //okno - nespravna odpoved
+		public Transform spawnPoint;		//bod inicializacie ryby
+		public GameObject fish;				//objekt ryby
+		public GameObject popupCorrect;		//okno - spravna odpoved
+		public GameObject popupIncorrect;	//okno - nespravna odpoved
 		private bool alreadyChecked = false; //hrac skontroloval mail
 
 		//script na interakcie s mailom
@@ -64,9 +64,8 @@ namespace Custom.Scripts.L2 {
 			Debug.Log("tryagain in validatescript");
 		}
 
-		//objavi sa ryba
+		//objavi sa ryba, tato funkcia sa uz neppuziva
 		public void GetFish() {
-			Debug.Log("rybka chytena - klikla som na button alebo som rybu chytila? ");
 			popupCorrect.SetActive(false);
 		}
 		

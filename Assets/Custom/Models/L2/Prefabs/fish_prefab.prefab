@@ -178,6 +178,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114656026628605378}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Collect
         m_Mode: 1
         m_Arguments:
@@ -202,6 +203,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4742400826847612}
     m_Modifications:
+    - target: {fileID: 100000, guid: 20b8579cd47388d419128438b727813d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 100008, guid: 20b8579cd47388d419128438b727813d, type: 3}
       propertyPath: m_Name
       value: fish 1
