@@ -131,7 +131,8 @@ namespace Valve.VR.InteractionSystem
             return false;
         }
 
-        protected virtual void CreateHighlightRenderers()
+        ///???
+        public virtual void CreateHighlightRenderers()
         {
             existingSkinnedRenderers = this.GetComponentsInChildren<SkinnedMeshRenderer>(true);
             highlightHolder = new GameObject("Highlighter");
@@ -192,7 +193,8 @@ namespace Valve.VR.InteractionSystem
             }
         }
 
-        protected virtual void UpdateHighlightRenderers()
+        //???
+        public virtual void UpdateHighlightRenderers()
         {
             if (highlightHolder == null)
                 return;
@@ -291,7 +293,7 @@ namespace Valve.VR.InteractionSystem
 
         protected virtual void OnAttachedToHand(Hand hand)
         {
-            if (activateActionSetOnAttach != null)
+            if (activateActionSetOnAttach != null) 
                 activateActionSetOnAttach.Activate(hand.handType);
 
             if (onAttachedToHand != null)

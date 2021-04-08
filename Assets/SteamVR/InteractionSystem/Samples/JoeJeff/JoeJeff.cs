@@ -142,11 +142,11 @@ namespace Valve.VR.InteractionSystem.Sample
             animator.SetFloat("Forward", fire.isBurning ? 2 : forwardAmount, 0.1f, Time.deltaTime);
             animator.SetFloat("Turn", turnAmount, 0.1f, Time.deltaTime);
             animator.SetBool("OnGround", isGrounded);
-            animator.SetBool("Holding", held);
+            //animator.SetBool("Holding", held);
 
             if (!isGrounded)
             {
-                animator.SetFloat("FallSpeed", Mathf.Abs(rigidbody.velocity.y));
+                //animator.SetFloat("FallSpeed", Mathf.Abs(rigidbody.velocity.y));
                 animator.SetFloat("Jump", rigidbody.velocity.y);
             }
         }

@@ -28,5 +28,11 @@ namespace Valve.VR.InteractionSystem.Sample
                 renderers[rendererIndex].material.color = newColor;
             }
         }
+
+        public void OnButtonIsPressed(Hand fromHand) {
+            ColorSelf(Color.red);
+            Debug.Log("Button is pressed");
+
+        }
     }
 }

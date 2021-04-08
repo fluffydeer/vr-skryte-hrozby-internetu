@@ -26,6 +26,7 @@ TagManager:
   - FxTemporaire
   - Fire
   - VirusRoom
+  - Hand
   layers:
   - Default
   - TransparentFX
