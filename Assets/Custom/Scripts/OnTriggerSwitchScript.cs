@@ -9,6 +9,8 @@ namespace Custom.Scripts {
         private string destinationSceneName2 = "PhishingScene"; //scena, na ktoru sa prepne
         private string destinationSceneName3 = "PasswordScene"; //scena, na ktoru sa prepne
         private string destinationSceneName4 = "EndScene"; //scena, na ktoru sa prepne
+        private string destinationSceneName5 = "MenuScene"; //scena, na ktoru sa prepne
+
         private static int sceneCounter = 0;
 
         private FadeScript fadeScript; 
@@ -19,7 +21,7 @@ namespace Custom.Scripts {
         }
         
         private void LoadSceneInvoke() {
-            //toto by sa dalo refaktovat do 1 riadku
+            //toto by sa dalo refaktovat do 1 riadku ci?
             if(sceneCounter == 0) {
                 sceneCounter++;
                 SceneManager.LoadScene(destinationSceneName);
@@ -30,8 +32,11 @@ namespace Custom.Scripts {
                 sceneCounter++;
                 SceneManager.LoadScene(destinationSceneName3);
             } else if (sceneCounter == 3) {
-                sceneCounter=0;
+                sceneCounter++;
                 SceneManager.LoadScene(destinationSceneName4);
+            } else if (sceneCounter == 4) {
+                sceneCounter=0;
+                SceneManager.LoadScene(destinationSceneName5);
             }
         }
 
