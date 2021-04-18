@@ -6,6 +6,11 @@ namespace Custom.Scripts {
     public class OnTriggerSwitchScript : MonoBehaviour {
 
         public string destinationSceneName; //scena, na ktoru sa prepne
+        private string destinationSceneName2 = "PhishingScene"; //scena, na ktoru sa prepne
+        private string destinationSceneName3 = "PasswordScene"; //scena, na ktoru sa prepne
+        private string destinationSceneName4 = "EndScene"; //scena, na ktoru sa prepne
+        private static int sceneCounter = 0;
+
         private FadeScript fadeScript; 
         
         void Start() {
@@ -14,7 +19,20 @@ namespace Custom.Scripts {
         }
         
         private void LoadSceneInvoke() {
-            SceneManager.LoadScene(destinationSceneName); 
+            //toto by sa dalo refaktovat do 1 riadku
+            if(sceneCounter == 0) {
+                sceneCounter++;
+                SceneManager.LoadScene(destinationSceneName);
+            }else if(sceneCounter == 1) {
+                sceneCounter++;
+                SceneManager.LoadScene(destinationSceneName2);
+            } else if (sceneCounter == 2) {
+                sceneCounter++;
+                SceneManager.LoadScene(destinationSceneName3);
+            } else if (sceneCounter == 3) {
+                sceneCounter=0;
+                SceneManager.LoadScene(destinationSceneName4);
+            }
         }
 
         private void LoadScene() {
