@@ -7,7 +7,8 @@ namespace Custom.Scripts.L3 {
 	public class L3ManagerScript : MonoBehaviour {
 
 		public Text infoText; //text na tabuli
-		public SimpleHealthBar healthBar; //progress bar - percentualny stav sily hesla
+        public Text passwordText; //text na tabuli
+        public SimpleHealthBar healthBar; //progress bar - percentualny stav sily hesla
 		public float barValue = 0.0f;	//aktualny stav na progress bare
 		
 		//casti hradu
@@ -75,11 +76,12 @@ namespace Custom.Scripts.L3 {
 				infoText.fontSize = 50;
 				infoText.text = "Výborne!\n" +
 				                "Vaše heslo je:\n"+password;
+                passwordText.text = "";
 
 				//spustenie ohnostrojov a vypnutie pustnej burky
 				foreach (ParticleSystem ps in particleSystems) {
 					if (ps.CompareTag("PlayParticles")) {
-						ps.Play();
+                        ps.Play();
 					}
 					else if (ps.CompareTag("StopParticles")) {
 						ps.Stop();
@@ -101,9 +103,9 @@ namespace Custom.Scripts.L3 {
 			}
 		}
 
-		private void OnCollisionEnter(Collision other) {
-			//other.gameObject - dotykajuci sa objekt
-			switch (other.gameObject.tag) { 
+        private void OnTriggerEnter(Collider other){
+            //other.gameObject - dotykajuci sa objekt
+            switch (other.gameObject.tag) { 
 
 				case "SpecialSymbol":
 					//prida sa nove pismeno
@@ -126,6 +128,7 @@ namespace Custom.Scripts.L3 {
 					password += other.gameObject.name[0];
 					break;
 			}
+            passwordText.text = password;
 			Win(); //vyhodnoti, ci je koniec hry
 		}
 
@@ -159,9 +162,10 @@ namespace Custom.Scripts.L3 {
 		}
 	
 		//dotyk stola s pismenom
-		private void OnCollisionExit(Collision other) {
-			//other.gameObject - dotykajuci sa objekt
-			switch (other.gameObject.tag) {
+        private void OnTriggerExit(Collider other){
+
+                //other.gameObject - dotykajuci sa objekt
+                switch (other.gameObject.tag) {
 				case "SpecialSymbol":
 					/* z hesla sa vymaze posledne pismeno zodpovedajuce
 					odstranenemu pismenu */
@@ -185,7 +189,8 @@ namespace Custom.Scripts.L3 {
 						password.LastIndexOf(other.gameObject.name[0]),1);
 					break;
 			}
-			Win(); //vyhodnoti, ci je koniec hry
+            passwordText.text = password;
+            Win(); //vyhodnoti, ci je koniec hry
 		}
 	}
 }

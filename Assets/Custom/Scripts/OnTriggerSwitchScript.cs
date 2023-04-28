@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//toto sa tusim nikde nepouziva
 namespace Custom.Scripts {
     //prepnutie na inu scenu pri kolizii
     public class OnTriggerSwitchScript : MonoBehaviour {
@@ -47,11 +48,9 @@ namespace Custom.Scripts {
         
         //kolizia portalu s hracom
         private void OnTriggerEnter(Collider other) {
-            
             if (other.CompareTag("Player")) {
                 LoadScene();
             }
         }
-
     }
 }

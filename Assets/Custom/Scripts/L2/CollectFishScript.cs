@@ -8,7 +8,7 @@ namespace Custom.Scripts.L2 {
 		
 		//inicializacia
 		void Start () {
-			l2ManagerScript = GameObject.Find("Player").GetComponent<L2ManagerScript>();
+			l2ManagerScript = GameObject.Find("L2Manager").GetComponent<L2ManagerScript>();
 		}
 
 		void Update () {
@@ -19,5 +19,10 @@ namespace Custom.Scripts.L2 {
 			l2ManagerScript.points++;	//zvysenie stavu
 			Destroy(gameObject);		//znicenie objektu
 		}
+
+        private void OnTriggerEnter()
+        {
+            Collect();
+        }
 	}
 }

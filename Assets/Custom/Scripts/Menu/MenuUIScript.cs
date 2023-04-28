@@ -1,27 +1,89 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using System.Collections;
-using System.Collections.Generic;
-using Valve.VR.Extras;
 
 namespace Custom.Scripts.Menu {
 
 	//interakcie s pouzivatelskym rozhranim v menu
 	public class MenuUIScript : MonoBehaviour {
-		public SteamVR_LaserPointer laserPointer;                   //laser shooting from right hand
 		public GameObject aboutPanel, tutorialPanel, infoPanel;     //UI panely
-		public Slider musicSlider, effectsSlider;                   //ovladace hlasitosti
+		public Slider musicSlider, effectsSlider, sensitivitySlider;                   //ovladace hlasitosti
+        private float sensitivityDefault = 0.6f;
 		private AudioManagerScript audioManagerScript;              //script na ovladanie zvuku
 		private int contentSwitch = 0;
+        public Camera characterCamera;                              // Reference to the character camera.
+        public PlayerMovement player;
 
-		//inicializacia
-		void Start() {
+        //inicializacia
+        void Start() {
 			audioManagerScript = gameObject.GetComponent<AudioManagerScript>();
 			musicSlider.value = PlayerPrefs.GetFloat("music", audioManagerScript.defaultVolume);
 			effectsSlider.value = PlayerPrefs.GetFloat("effects", audioManagerScript.defaultVolume);
 			audioManagerScript.SetVolume();
-		}
+        }
+
+        private void Update()
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                // Create ray from center of the screen
+                var ray = characterCamera.ViewportPointToRay(Vector3.one * 0.5f);
+                RaycastHit hit;
+
+                // Shot ray to find UI element to select
+                if (Physics.Raycast(ray, out hit, 10.0f))
+                {
+                    // If object has certain tag then proceed
+                    if (hit.transform.name == "ExitButton")
+                    {
+                        ExitGame();
+                    }
+                    else if (hit.transform.name == "ShowInfoButton")
+                    {
+                        ShowInfoPanel();
+                    }
+                    else if (hit.transform.name == "HideInfoButton")
+                    {
+                        HideInfoPanel();
+                    }
+                    else if (hit.transform.name == "ScrollViewUp")
+                    {
+                        ScrollUp();
+                    }
+                    else if (hit.transform.name == "ScrollViewDown")
+                    {
+                        ScrollDown();
+                    }
+                    else if (hit.transform.name == "ResetButton")
+                    {
+                        ResetVolume();
+                    }
+                    else if (hit.transform.name == "MusicVolumeUp")
+                    {
+                        IncreaseMusicVolume();
+                    }
+                    else if (hit.transform.name == "MusicVolumeDown")
+                    {
+                        DecreaseMusicVolume();
+                    }
+                    else if (hit.transform.name == "EffectsVolumeUp")
+                    {
+                        IncreaseEffectsVolume();
+                    }
+                    else if (hit.transform.name == "EffectsVolumeDown")
+                    {
+                        DecreaseEffectsVolume();
+                    }
+                    else if (hit.transform.name == "MouseSensitivityUp")
+                    {
+                        IncreaseMouseSensitivity();
+                    }
+                    else if (hit.transform.name == "MouseSensitivityDown")
+                    {
+                        DecreaseMouseSensitivity();
+                    }
+                }
+            }
+        }
 
 		//ukoncenie hry
 		public void ExitGame() {
@@ -32,8 +94,24 @@ namespace Custom.Scripts.Menu {
 #endif
 		}
 
-		//prepinanie panelov - pomocna funkcia
-		public void TogglePanel(GameObject visible, GameObject hidden) {
+        public void IncreaseMouseSensitivity()
+        {
+            sensitivitySlider.value += 0.1f;
+        }
+
+        public void DecreaseMouseSensitivity()
+        {
+            sensitivitySlider.value -= 0.1f;
+        }
+
+        public void UpdateMouseSensitivity()
+        {
+            player.mouseSensitivity = sensitivitySlider.value;
+            PlayerPrefs.SetFloat("sensitivity", sensitivitySlider.value);
+        }
+
+        //prepinanie panelov - pomocna funkcia
+        public void TogglePanel(GameObject visible, GameObject hidden) {
 			visible.SetActive(true);
 			hidden.SetActive(false);
 		}
@@ -97,9 +175,11 @@ namespace Custom.Scripts.Menu {
 			//nastavenie hodnot v PlayerPrefs
 			PlayerPrefs.SetFloat("music", audioManagerScript.defaultVolume);
 			PlayerPrefs.SetFloat("effects", audioManagerScript.defaultVolume);
+            PlayerPrefs.SetFloat("sensitivity", sensitivityDefault);
 			//nastavenie polohy slidera
 			musicSlider.value = audioManagerScript.defaultVolume;
 			effectsSlider.value = audioManagerScript.defaultVolume;
+            sensitivitySlider.value = sensitivityDefault;
 
 			audioManagerScript.SetVolume(); //aktualizacia hlasitosti
 		}
@@ -122,69 +202,5 @@ namespace Custom.Scripts.Menu {
 		private void ScrollDown(){
 			Scroll(1);
 		}
-
-		void Awake(){
-			laserPointer.PointerIn += PointerInside;
-			laserPointer.PointerOut += PointerOutside;
-			laserPointer.PointerClick += PointerClick;
-		}
-
-		public void PointerClick(object sender, PointerEventArgs e){
-            switch (e.target.name)
-            {
-				case "ExitButton":
-					ExitGame();
-					break;
-				case "ShowTutorialButton":
-					ShowTutorialPanel();
-					break;
-				case "HideTutorialButton":
-					HideTutorialPanel();
-					break;
-				case "ShowInfoButton":
-					ShowInfoPanel();
-					break;
-				case "HideInfoButton":
-					HideInfoPanel();
-					break;
-
-
-				case "ScrollViewUp":            //LaserPointer reaguje len na click neda sa dragovat
-					//Debug.Log("ScrollViewUp");
-					ScrollUp();
-					break;
-				case "ScrollViewDown":            //LaserPointer reaguje len na click neda sa dragovat
-					//Debug.Log("ScrollViewDown");
-					ScrollDown();
-					break;
-				case "DemoButton":
-					Debug.Log("Demo Button was clicked");
-
-
-					break;
-				case "ResetButton":
-					ResetVolume();
-					break;
-				case "MusicVolumeUp":		//LaserPointer reaguje len na click neda sa dragovat
-					IncreaseMusicVolume();
-					break;
-				case "MusicVolumeDown":
-					DecreaseMusicVolume();
-					break;
-				case "EffectsVolumeUp":
-					IncreaseEffectsVolume();
-					break;
-				case "EffectsVolumeDown":
-					DecreaseEffectsVolume();
-					break;
-				default:
-					break;
-			}
-
-		}
-
-		public void PointerInside(object sender, PointerEventArgs e){}
-
-		public void PointerOutside(object sender, PointerEventArgs e){}
 	}
 }

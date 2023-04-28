@@ -61,7 +61,6 @@ namespace Custom.Scripts.L2 {
 			foreach (EmailInteractionScript highlightedText in emailInteractionScripts) {
 				highlightedText.Clear();
 			}
-			Debug.Log("tryagain in validatescript");
 		}
 
 		//objavi sa ryba, tato funkcia sa uz neppuziva
@@ -69,17 +68,10 @@ namespace Custom.Scripts.L2 {
 			popupCorrect.SetActive(false);
 		}
 		
-		
 		//zavolana pri kliknuti na tlacidlo "Skontroluj"
 		public bool GetResult() {
 			if (!alreadyChecked) {
 				if (ValidateAnswer()) { //kontrola odpovede
-					
-					//aby sa neinicializovalo viacero ryb 
-					foreach (GameObject f in GameObject.FindGameObjectsWithTag("Fish")) {
-						Destroy(f);
-					}
-					//popupCorrect.SetActive(true); //info - spravna odpoved
 					Instantiate(fish, spawnPoint.position, spawnPoint.rotation); //inicializacia ryby
 					alreadyChecked = true;
 					return true;

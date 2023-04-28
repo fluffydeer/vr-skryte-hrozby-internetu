@@ -14,105 +14,10 @@ namespace Custom.Scripts.L2 {
         public GameObject exampleMail;                  //prikladovy mail
         public GameObject winPanel;                     //panel zobrazeny na konci hry
         public Text pointsStatusText;                   //bodovy stav = text na vrchnej casti obrazovky
-
         private AudioManagerScript audioManagerScript;  //script na ovladanie hlasitosti
-        private bool gameStarted = false;
-
-        private GameObject previouslyClickedCheckAnswersButton;
         private Animator phishingAnimator;              //animacia pre phishing maily
         private Animator exampleAnimator;               //animacia pre prikladovy mail
         private Animator winAnimator;                   //animacia pre vyhernu tabulu a TeleportPoint
-
-        /*** upravy od natalky ***/
-        public SteamVR_LaserPointer laserPointer;   //nezabudnut pridat RightHand na GameObject s tymto skriptom
-
-        void Awake() {
-            laserPointer.PointerIn += PointerInside;
-            laserPointer.PointerOut += PointerOutside;
-            laserPointer.PointerClick += PointerClick;
-        }
-
-        public void PointerClick(object sender, PointerEventArgs e) {
-            if (e.target.name == "OkButton") {
-                handleOkButton();
-            } else if (e.target.name == "CheckAnswersButton") {
-                handleCheckAnswersButton(e.target);
-            } else if (e.target.name == "CorrectAnswerButton") {
-                handleCorrectAnswerButton(e.target);
-            } else if (e.target.name == "IncorrectAnswerButton") {
-                handleIncorrectAnswerButton(e.target);
-            } else if (e.target.name.Contains("Text")) {
-                handleText(e.target);
-            }
-        }
-
-        public void handleOkButton() {
-            gameStarted = true;
-            StartLevel();
-        }
-
-        public void handleCheckAnswersButton(Transform clickedObject) {
-            GameObject clickedButton = getClickedGameObject(clickedObject);
-            previouslyClickedCheckAnswersButton = clickedButton;
-            ValidateEmailScript script = getValidateEmailScriptFirstLevel(clickedObject);
-            if (script.GetResult()) {
-                clickedButton.SetActive(false);
-            }
-        }
-
-        public void handleCorrectAnswerButton(Transform clickedObject) {
-            previouslyClickedCheckAnswersButton.SetActive(false);
-            ValidateEmailScript script = getValidateEmailScriptSecondLevel(clickedObject);
-            script.GetFish();
-        }
-
-
-        public void handleIncorrectAnswerButton(Transform clickedObject) {
-            ValidateEmailScript script = getValidateEmailScriptSecondLevel(clickedObject);
-            script.TryAgain();
-        }
-
-        public void handleText(Transform clickedObject) {
-            GameObject clickedText = getClickedGameObject(clickedObject);
-            ValidateEmailScript script = getValidateEmailScriptFirstLevel(clickedObject);
-            if (!gameStarted || !script.getAlreadyChecked()) {
-                EmailInteractionScript emailScript = (EmailInteractionScript)clickedText.GetComponent(typeof(EmailInteractionScript));
-                emailScript.Select();
-            }
-        }
-
-        public ValidateEmailScript getValidateEmailScriptFirstLevel(Transform clickedObject) {
-            GameObject clickedText = getClickedGameObject(clickedObject);
-            GameObject canvas = clickedText.transform.parent.gameObject;                     //parent zakliknuteho buttonu
-            return (ValidateEmailScript)canvas.GetComponent(typeof(ValidateEmailScript));
-        }
-
-        public ValidateEmailScript getValidateEmailScriptSecondLevel(Transform clickedObject) {
-            GameObject clickedButton = getClickedGameObject(clickedObject);
-            GameObject popUp = clickedButton.transform.parent.gameObject;                   //parent zakliknuteho buttonu
-            GameObject canvas = popUp.transform.parent.gameObject;
-            return (ValidateEmailScript)canvas.GetComponent(typeof(ValidateEmailScript));
-        }
-
-        //hladanie GameObjektov podla ich instance ID, kedze tam mame asi 10 Buttonov
-        //s tym istym id a to iste aj pre texty na canvasoch
-        public GameObject getClickedGameObject(Transform clickedObject) {
-            string previousName = clickedObject.name;
-            //poitrebujem objektu nastavit id cize ja tam potrebujem poslat objekt
-            clickedObject.name = clickedObject.GetInstanceID().ToString();
-            GameObject ourPreciousGameObject = GameObject.Find(clickedObject.name);
-            clickedObject.name = previousName;
-            return ourPreciousGameObject;
-        }
-        
-
-        public void PointerInside(object sender, PointerEventArgs e) {
-        }
-
-        public void PointerOutside(object sender, PointerEventArgs e) {
-        }
-        /*** koniec natalky ***/
-
 
         //inicializacia
         void Start() {
@@ -135,8 +40,8 @@ namespace Custom.Scripts.L2 {
             exampleAnimator.SetBool("moveUp",false);
             winAnimator.SetBool("moveDown",false);
         }
-     
-      
+
+
         void Update() {
             pointsStatusText.text = points+"/10"; //stav na hornej casti obrazovky
             if (points == 10) { //pozbierane vsetky ryby - level je dokonceny

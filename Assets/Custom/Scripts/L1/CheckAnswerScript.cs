@@ -13,7 +13,7 @@ namespace Custom.Scripts.L1 {
 		public Light redLight; //cervene svetlo
 		public L1ManagerScript l1ManagerScript; //manager prvej urovne
 
-		private bool pushedButton = false; //stlacene tlacidlo
+		private bool pushedButton = true; //stlacene tlacidlo
 		private bool alreadyPlayed = false; //spustena hra
 
 		private Animator closeBoxAnimator; //animacia
@@ -29,11 +29,17 @@ namespace Custom.Scripts.L1 {
 		}
 
 		private void Update() {
-			CheckAnswer(); //kontrola odpovede
+			//CheckAnswer(); //kontrola odpovede
 		}
 
-		//animacia zatvorenia krabice
-		private void CloseBox() {
+        private void OnTriggerEnter(Collider other)
+        {
+            collidedObject = other;
+            CheckAnswer(); //kontrola odpovede
+        }
+
+        //animacia zatvorenia krabice
+        private void CloseBox() {
 			closeBoxAnimator.SetBool("correctAnswer", true);
 		}
 		
@@ -50,23 +56,26 @@ namespace Custom.Scripts.L1 {
 
 		//stlacenie tlacidla
 		public void SetPushedButton() {
-			
-			if (pushedButton == false) {
+			//buttons removed for our desktop version
+			/*if (pushedButton == false) {
 				pushedButton = true;
-			}
+			}*/
 		}
 
 		//kontrola spravnej odpovede
 		private void CheckAnswer() {
-
+            //pushedButton dame prec
 			if (pushedButton && !alreadyPlayed) { //stlacene tlacidlo
 				
 				if (collidedObject == null) { //v krabici nie je nic
-					pushedButton = false; //reset
+                    Debug.Log("collided object is null");
+                    pushedButton = false; //reset
 				}
 				else { //v krabici je objekt
-					if (correctTag.Contains(collidedObject.tag)) { //spravny objekt
-						l1ManagerScript.correctSound.Play(); // zvukovy efekt
+                    Debug.Log("checking objects");
+                    if (correctTag.Contains(collidedObject.tag)) { //spravny objekt
+                        Debug.Log("correct object");
+                        l1ManagerScript.correctSound.Play(); // zvukovy efekt
 						l1ManagerScript.status++; //zvysi sa pocet bodov
 						//zmena farby canvas
 						redCanvas.SetActive(false);
@@ -78,14 +87,14 @@ namespace Custom.Scripts.L1 {
 						alreadyPlayed = true;
 					}
 					else { //nespravny objekt
-						l1ManagerScript.incorrectSound.Play(); // zvukovy efekt
+                        Debug.Log("incorrect object");
+                        l1ManagerScript.incorrectSound.Play(); // zvukovy efekt
 						collidedObject.GetComponent<SpawnScript>().Spawn(); // zobrazenie na povodnom mieste
 					}
 					Invoke("HideObject", 2.0f); //zmiznutie objektu
 					Destroy(collidedObject, 5); //znicenie objektu
 					collidedObject = null;
-					pushedButton = false;
-					
+					//pushedButton = false;
 				}
 			}
 		}

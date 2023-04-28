@@ -2,6 +2,30 @@
 using System.Collections;
 using Custom.Scripts.L1;
 
+public class InteractableForViruses : MonoBehaviour
+{
+    public GameObject generalPanelText;
+    public GameObject panelVirusText;
+    private string playerString = "Player";
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.name == playerString)
+        {
+            panelVirusText.SetActive(true);
+            generalPanelText.SetActive(false);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        panelVirusText.SetActive(false);
+        generalPanelText.SetActive(true);
+    }
+}
+
+
+/*
 namespace Valve.VR.InteractionSystem.Sample {
 	//-------------------------------------------------------------------------
 	[RequireComponent(typeof(Interactable))]	//automaticky prida dany objekt na GO
@@ -112,4 +136,6 @@ namespace Valve.VR.InteractionSystem.Sample {
 		private void OnHandFocusLost(Hand hand) {
 		}
 	}
-}
+}*/
+
+

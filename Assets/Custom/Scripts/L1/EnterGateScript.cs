@@ -7,23 +7,32 @@ namespace Custom.Scripts.L1 {
 	//zachytavanie prechodu cez branu
 	public class EnterGateScript : MonoBehaviour {
 
-		public AudioSource audioSource; //zvuk
-		public GameObject welcomePanel; //panel s informaciami
-		public Button button; //tlacidlo na paneli
-		public L1ManagerScript l1ManagerScript; //manager prvej urovne
-		public bool gameFinished = false; //ukonceny level
+		public AudioSource audioSource;             //zvuk
+		public GameObject welcomePanel;             //panel s informaciami
+		public L1ManagerScript l1ManagerScript;     //manager prvej urovne
+		public bool gameFinished = false;           //ukonceny level
 	
-		private CanvasGroup canvasGroup; //canvas z panelu s informaciami
-		private ParticleSystem[] particleSystems; //particle systemy
-		private bool alreadyStarted = false; //spusteny level
-		
-		//inicializacia
-		void Start () {
+		private CanvasGroup canvasGroup;            //canvas z panelu s informaciami
+		private ParticleSystem[] particleSystems;   //particle systemy
+		private bool alreadyStarted = false;        //spusteny level
+        private string playerString = "Player";
+
+
+        //inicializacia
+        void Start () {
 			particleSystems = FindObjectsOfType<ParticleSystem>();
 			canvasGroup = welcomePanel.GetComponent<CanvasGroup>();
 			canvasGroup.alpha = 0;
 		}
 
+
+        public void OnTriggerEnter(Collider other)
+        {
+            if (other.name == playerString)
+            {
+                ShowGameStartRelatedStuff();
+            }
+        }
 
 		public void ShowGameStartRelatedStuff()
 		{
@@ -35,6 +44,7 @@ namespace Custom.Scripts.L1 {
 			}
 
 			//zobrazi sa panel s teleportom
+            //TODO: asi toto treba upravit
 			if (gameFinished)
 			{
 				l1ManagerScript.endLevelPanel.SetActive(false); //zmiznutie instrukcii
@@ -43,7 +53,7 @@ namespace Custom.Scripts.L1 {
 		
 		void ShowStuff() {
 			PlayParticles(); //spustenie particle systemov
-			Invoke("ShowPanel",8.0f); //objavi sa panel
+			Invoke("ShowPanel",0.0f); //objavi sa panel
 		}
 	
 		//zobrazenie panela

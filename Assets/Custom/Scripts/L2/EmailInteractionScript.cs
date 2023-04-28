@@ -3,7 +3,7 @@ using UnityEngine;
 //using Valve.VR.Extras;
 
 namespace Custom.Scripts.L2 {
-	
+
 	//interakcie hraca s emailom
 	public class EmailInteractionScript : MonoBehaviour {
 		
@@ -15,9 +15,9 @@ namespace Custom.Scripts.L2 {
 		public GameObject backgroundCorrect; 
 		public GameObject backgroundIncorrect;
 		public GameObject background;
-		
-		//inicializacia
-		void Start() {
+
+        //inicializacia
+        void Start() {
 			highlightedText = gameObject.GetComponent<Transform>();
 			
 			if (backgroundCorrect != null)
@@ -28,8 +28,9 @@ namespace Custom.Scripts.L2 {
 				background.SetActive(false);
 		}
 
-		//oznacenie textu - zobrazi sa pozadie
-		public void Select() {
+
+        //oznacenie textu - zobrazi sa pozadie
+        public void Select() {
 			if (selected) {
 				background.SetActive(false);
 				selected = false;
